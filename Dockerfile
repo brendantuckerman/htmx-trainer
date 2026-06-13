@@ -33,6 +33,7 @@ RUN cp .env.dist .env \
     && php bin/console cache:clear \
     && php bin/console assets:install public \
     && php bin/console importmap:install \
+    && php bin/console asset-map:compile \
     && rm -f .env
 
 FROM base AS production
