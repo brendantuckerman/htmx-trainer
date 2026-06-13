@@ -16,7 +16,11 @@ RUN apk add --no-cache \
 
 COPY --from=composer:2 /usr/bin/composer /usr/bin/composer
 
+ENV COMPOSER_ALLOW_SUPERUSER=1
+
 FROM base AS build
+
+ENV COMPOSER_ALLOW_SUPERUSER=1
 
 WORKDIR /app
 
@@ -25,7 +29,9 @@ RUN composer install --no-dev --no-scripts --no-autoloader --prefer-dist
 
 COPY . .
 RUN composer dump-autoload --optimize --no-dev \
-    && composer run-script post-install-cmd --no-dev
+    && php bin/console cache:clear \
+    && php bin/console assets:install public \
+    && php bin/console importmap:install
 
 FROM base AS production
 
