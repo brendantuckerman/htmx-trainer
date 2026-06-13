@@ -28,10 +28,12 @@ COPY composer.json composer.lock symfony.lock ./
 RUN composer install --no-dev --no-scripts --no-autoloader --prefer-dist
 
 COPY . .
-RUN composer dump-autoload --optimize --no-dev \
+RUN cp .env.dist .env \
+    && composer dump-autoload --optimize --no-dev \
     && php bin/console cache:clear \
     && php bin/console assets:install public \
-    && php bin/console importmap:install
+    && php bin/console importmap:install \
+    && rm -f .env
 
 FROM base AS production
 
