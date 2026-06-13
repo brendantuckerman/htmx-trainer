@@ -11,12 +11,6 @@
 <div class="example-wrapper">
     <h1>Hello {{ controller_name }}! ✅</h1>
 
-    This friendly message is coming from:
-    <ul>
-        {{dump(request)}}
-        <li>Your controller at <code>/Users/brendantuckerman/Projects/htmx-training/src/Controller/DashboardController.php</code></li>
-        <li>Your template at <code>/Users/brendantuckerman/Projects/htmx-training/templates/dashboard/index.html.twig</code></li>
-    </ul>
   <div id="parent-div">
     <button hx-get="/clicked"
     hx-trigger="click"
