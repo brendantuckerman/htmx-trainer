@@ -18,11 +18,10 @@
         <script src="https://cdn.jsdelivr.net/npm/frankenphp-hot-reload/+esm" type="module"></script>
         {% endif %}
     </head>
-    {% if header %}
-      {% block header %}{% endblock %}
-    {% endif %}
+      {% block header %} {% include "header.html.twig" %}{% endblock %}
     
     <body>
         {% block body %}{% endblock %}
     </body>
+
 </html>

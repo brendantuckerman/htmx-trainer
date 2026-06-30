@@ -1,6 +1,11 @@
-Links:
-https://htmx-training.fly.dev/
-Log in to fly.io and supabas for app and db
+# HtmeXcel
+
+Setup:
+
+PHPCS:
+
+$ ./vendor/bin/php-cs-fixer fix
+$ ./vendor/bin/php-cs-fixer check
 
 ## Data strucutre
 
