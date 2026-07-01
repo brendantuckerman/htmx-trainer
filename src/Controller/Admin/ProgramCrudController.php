@@ -22,9 +22,10 @@ class ProgramCrudController extends AbstractCrudController
     public function configureFields(string $pageName): iterable
     {
         return [
-            IdField::new('id'),
+            IdField::new('id')->hideOnForm(),
             TextField::new('name'),
             TextEditorField::new('description'),
+            // Looks like easy admin renders this as US dates in the form :(
             DateField::new('startDate'),
             DateField::new('endDate'),
             ChoiceField::new('status'),

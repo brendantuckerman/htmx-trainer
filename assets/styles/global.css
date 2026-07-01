@@ -1,0 +1,456 @@
+/* 
+  Breakpoint reference:
+ 
+sm: 640px — large phones, small tablets in portrait 
+@media screen and (min-width: 640px)  { ... }
+ 
+md: 768px — tablets, large phones in landscape 
+@media screen and (min-width: 768px)  { ... }
+ 
+lg: 1024px — laptops, small desktops 
+@media screen and (min-width: 1024px) { ... }
+
+ xl: 1280px — standard desktop monitors 
+@media screen and (min-width: 1280px) { ... }
+
+2xl: 1536px — wide and ultrawide monitors 
+@media screen and (min-width: 1536px) { ... }
+*/
+
+:root {
+  /* Font sizes — mirrors Tailwind's type scale */
+  --text-xs: 0.75rem; /* 12px */
+  --text-sm: 0.875rem; /* 14px */
+  --text-base: 1rem; /* 16px */
+  --text-lg: 1.125rem; /* 18px */
+  --text-xl: 1.25rem; /* 20px */
+  --text-2xl: 1.5rem; /* 24px */
+  --text-3xl: 1.875rem; /* 30px */
+  --text-4xl: 2.25rem; /* 36px */
+  --text-5xl: 3rem; /* 48px */
+  --text-6xl: 3.75rem; /* 60px */
+  --text-7xl: 4.5rem; /* 72px */
+  --text-8xl: 6rem; /* 96px */
+  --text-9xl: 8rem; /* 128px */
+
+  /* Paired line heights */
+  --leading-xs: 1rem;
+  --leading-sm: 1.25rem;
+  --leading-base: 1.5rem;
+  --leading-lg: 1.75rem;
+  --leading-xl: 1.75rem;
+  --leading-2xl: 2rem;
+  --leading-3xl: 2.25rem;
+  --leading-4xl: 2.5rem;
+  --leading-5xl: 1;
+  --leading-6xl: 1;
+  --leading-7xl: 1;
+  --leading-8xl: 1;
+  --leading-9xl: 1;
+
+  /* Spacing */
+  --spacing-xs: 0.5rem;
+  --spacing-sm: 1rem;
+  --spacing-base: 2rem;
+
+  /* Grid */
+  --grid-cols-sm: 1fr;
+  --grid-cols-md: 1fr 1fr;
+}
+
+html,
+body {
+  height: 100vh;
+  overflow: hidden;
+}
+
+body {
+  background: var(--bg-hero);
+}
+
+body {
+  font:
+    400 14px/22px "Open Sans",
+    "Helvetica Neue",
+    Helvetica,
+    Arial,
+    sans-serif;
+  color: var(--text-default);
+}
+
+[class*="icon-"] > * {
+  font:
+    400 14px/22px "Open Sans",
+    "Helvetica Neue",
+    Helvetica,
+    Arial,
+    sans-serif;
+  color: var(--icon-secondary);
+}
+
+h1,
+.h1,
+h2,
+.h2,
+h3,
+.h3,
+h4,
+.h4,
+h5,
+.h5,
+h6,
+.h6 {
+  margin: 0 0 22px;
+  font-family:
+    "Open Sans", "HelveticaNeue-Light", "Helvetica Neue Light",
+    "Helvetica Neue", Helvetica, Arial, sans-serif;
+  line-height: 1.4;
+  font-weight: 500;
+}
+
+h1,
+.h1 {
+  font-size: 44px;
+}
+
+h2,
+.h2 {
+  font-size: 32px;
+}
+
+h3,
+.h3 {
+  font-size: 26px;
+}
+
+h4,
+.h4 {
+  font-size: 22px;
+}
+
+h5,
+.h5 {
+  font-weight: 300;
+  font-size: 18px;
+}
+
+h6,
+.h6 {
+  font-weight: 400;
+  font-size: 16px;
+}
+
+p {
+  margin: 0 0 22px 0;
+}
+
+a,
+a:hover {
+  color: var(--text-default);
+}
+
+a,
+a:focus {
+  outline: none;
+}
+
+.colored,
+a.colored,
+.colored:hover,
+a.colored:hover {
+  color: var(--text-action);
+}
+
+.colored [class*="icon"],
+a.colored [class*="icon"],
+.colored:hover [class*="icon"],
+a.colored:hover [class*="icon"] {
+  color: var(--icon-action);
+}
+
+a.disabled,
+span.disabled {
+  opacity: 0.5;
+}
+
+a.disabled:hover,
+span.disabled:hover {
+  text-decoration: none;
+}
+
+a.colored.disabled {
+  opacity: 0.5;
+}
+
+.dense {
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 22px;
+}
+
+button {
+  background: none;
+  cursor: pointer;
+  border: none;
+  padding: 0;
+  margin: 0;
+}
+
+li {
+  line-height: 22px;
+}
+
+input[type="text"],
+input[type="password"],
+input[type="datetime"],
+input[type="datetime-local"],
+input[type="date"],
+input[type="month"],
+input[type="time"],
+input[type="week"],
+input[type="number"],
+input[type="email"],
+input[type="url"],
+input[type="search"],
+input[type="tel"],
+input[type="color"] {
+  outline: none;
+}
+
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+input[type="number"] {
+  -moz-appearance: textfield;
+}
+
+label,
+input,
+button,
+select,
+textarea {
+  font-size: 12px;
+  vertical-align: top;
+  font-family:
+    "Open Sans", "HelveticaNeue-Light", "Helvetica Neue Light",
+    "Helvetica Neue", Helvetica, Arial, sans-serif;
+  line-height: 22px;
+}
+
+iframe {
+  border: none;
+}
+
+.center-input {
+  margin: 0 auto;
+}
+
+.muted {
+  color: #888;
+  /* Tazer: Tweaking BootStrap's color (was #999) */
+}
+
+.fine-print {
+  font:
+    400 12px/22px "Open Sans",
+    "Helvetica Neue",
+    Helvetica,
+    Arial,
+    sans-serif;
+  color: var(--text-secondary);
+}
+
+/*  =======================
+    Containers
+    ======================= */
+
+.container {
+  padding: var(--spacing-base);
+}
+
+/*  =======================
+    Grid
+    ======================= */
+
+.grid {
+  display: grid;
+  grid-template-columns: var(--grid-cols-sm);
+  gap: var(--spacing-base);
+}
+
+@media screen and (min-width: 640px) {
+  .grid {
+    grid-template-columns: var(--grid-cols-md);
+  }
+}
+
+/*  ======================
+    System Message
+    ======================  */
+#system-message.home .alert {
+  border: none;
+  border-radius: 0;
+  margin: 0;
+  text-align: center;
+  padding: 10px;
+}
+
+/*  ======================
+    Global Icons
+    ======================  */
+/* making sure all icon anchor links have no underline */
+a:hover [class*="icon"],
+[class*="icon"] a:hover,
+[class^="icon"]:hover,
+[class*=" icon"]:hover {
+  text-decoration: none;
+}
+
+/*  ======================
+    Global Icons - Comments
+    ======================  */
+.icon-comments-container {
+  display: inline-block;
+}
+
+.icon-comments {
+  background: #999;
+  color: #fff;
+  display: inline-block;
+}
+
+.icon-comments:hover {
+  background: #777;
+  text-decoration: none;
+  color: #fff;
+}
+
+/*  ======================
+    Global Icons - Notes
+    ======================  */
+.icon-notes {
+  display: inline-block;
+  background-color: #c7c7c7;
+  cursor: pointer;
+}
+
+.icon-notes:hover {
+  border-color: #14a5ef;
+}
+
+/*  ======================
+    Branding
+    ======================  */
+.logo {
+  position: relative;
+
+  width: 150px;
+  height: 28px;
+
+  text-indent: -100000px;
+  text-decoration: none;
+  background-color: transparent;
+  background-image: url("/images/apps/connect/logo-sprite-@2x.png");
+  background-repeat: no-repeat;
+  background-position: 0 0;
+  background-size: 250px;
+}
+
+a.logo {
+  display: inline-block;
+}
+
+.logo:active {
+  top: 1px;
+}
+
+.logo-stack {
+  /* light, stacked */
+  width: 155px;
+  height: 40px;
+  background-position: 0 -29.047619048px;
+}
+
+.logo-reverse {
+  /* dark */
+  background-position: 0 -69.523809524px;
+}
+
+.logo-stack.logo-reverse {
+  /* dark, stacked */
+  background-position: 0 -98.467142857px;
+}
+
+.logo-stack.logo-trim {
+  width: 150px;
+  height: 27px;
+}
+
+/*  ======================
+    Other
+    ======================  */
+
+.new-items-alert {
+  background: var(--data-viz-blue-primary);
+  border-radius: 50%;
+  color: var(--text-always-white);
+  display: inline-block;
+  font-size: 10px;
+  font-weight: 600;
+  line-height: 10px;
+  min-width: 10px;
+  padding: 3px;
+  text-align: center;
+}
+
+.icon-text-label {
+  /* Add plain-text label to icon buttons for accessibility */
+  font-family: sans-serif;
+  position: absolute;
+  left: -99999px;
+  opacity: 0;
+}
+
+.icon-star {
+  margin: inherit;
+  width: auto;
+  height: auto;
+}
+
+.primaryDeviceLabel {
+  display: flex;
+  width: fit-content;
+  margin-top: 2px;
+  margin-bottom: 2px;
+  height: 26px;
+  background: var(--button-fill-secondary);
+  border-radius: 4px;
+}
+
+.primaryDeviceText {
+  font-family:
+    "Open Sans", "HelveticaNeue-Light", "Helvetica Neue Light",
+    "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 18px;
+  padding: 4px 8px;
+}
+
+/* unset overflow from new highcharts version on plot line and plot band,
+   using !important since highcharts provides no config to change this inline style */
+.highcharts-plot-line-label,
+.highcharts-plot-band-label {
+  overflow: unset !important;
+}
+
+/* dialog footer actions need spacing between buttons */
+.dialog-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 8px;
+}
