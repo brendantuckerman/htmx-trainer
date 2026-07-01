@@ -1,6 +1,11 @@
 # HtmeXcel
 
-Setup:
+Working locally:
+
+Start the app:
+`symfony server:start`
+Start the db:
+`docker compose up -d --remove-orphan`
 
 PHPCS:
 
