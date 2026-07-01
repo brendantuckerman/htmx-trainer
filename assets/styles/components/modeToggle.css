@@ -1,0 +1,26 @@
+/* Toggle Button Styling */
+#theme-toggle {
+  background: var(--slider-fill-active);
+  border: none;
+  padding: 10px 15px;
+  border-radius: 20px;
+  cursor: pointer;
+  font-size: 1.2rem;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+/* Hide the sun icon by default, show moon */
+:root[data-theme="dark"] .icon-sun {
+  display: inline;
+}
+:root[data-theme="dark"] .icon-moon {
+  display: none;
+}
+:root:not([data-theme="dark"]) .icon-sun {
+  display: none;
+}
+:root:not([data-theme="dark"]) .icon-moon {
+  display: inline;
+}

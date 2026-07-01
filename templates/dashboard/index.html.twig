@@ -9,7 +9,13 @@
   <div class="inner-content grid">
     {# Cards #}
     <div class="dashboard-card card">
-      <h2>See all programs</h2>
+      <h2 hx-get="/programs"
+          hx-trigger="click"
+          hx-target="#program-details"
+          hx-swap="innerHtml"
+        >See all programs
+        </h2>
+      <span id="program-details">Programs will appear here...</span>
     </div>
 
     <div class="dashboard-card card">
@@ -18,17 +24,4 @@
 
   </div>
 </main>
-
-
-<div class="example-wrapper">
-
-  <div id="parent-div">
-    <button hx-get="/clicked"
-    hx-trigger="click"
-    hx-target="#parent-div"
-    hx-swap="outerHTML">
-    Click Me!
-</button>
-</div>
-</div>
 {% endblock %}

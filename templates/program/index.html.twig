@@ -1,0 +1,15 @@
+{% block body %}
+<div id="programs-list">
+  <h3>All Programs</h3>
+  {% for program in programs %}
+    {{ program.name }}
+  {% endfor %}
+
+<button 
+hx-get="/"
+hx-swap="delete"
+hx-target="#programs-list",
+hx-trigger="click"
+>Hide</button>
+</div>
+{% endblock %}
