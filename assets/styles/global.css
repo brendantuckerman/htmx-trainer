@@ -58,12 +58,6 @@ lg: 1024px — laptops, small desktops
   --grid-cols-md: 1fr 1fr;
 }
 
-html,
-body {
-  height: 100vh;
-  overflow: hidden;
-}
-
 body {
   background: var(--bg-hero);
 }

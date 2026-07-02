@@ -1,0 +1,37 @@
+<ul id="sports-list">
+  {% if sports  %}
+    {% for sport in sports %}
+
+    {% set friendlyName = sport.name|replace({' ': "-"}) %}
+
+      <li id="sport-{{friendlyName}}">
+      <span class="pill pill-{{sport.color}}">{{sport.icon}}{{sport.name}}</span>
+        <button hx-get="{{path('sport_show', {id: sport.id} )}}"
+                hx-swap="outerHtml"
+                hx-trigger="click"
+                hx-target="#htmexcel-dialogue"
+        >
+        Edit
+        </button> 
+      |
+      <button class="delete"
+        hx-target="#sport-{{friendlyName}}"
+        hx-trigger="click"
+        hx-swap="delete"
+        hx-delete="{{ path('sport_delete') }}"
+        hx-confirm="Are you sure you want to delete {{sport.name}}?"
+        hx-vals='{"name": "{{sport.name}}" }'
+      >Delete</button>
+
+      </li>
+    {% endfor %}
+  {% endif %}
+</ul>
+{# Add a new sport with name only #}
+<span class="pill pill-neutral"
+      hx-target="#debug"
+      hx-swap="innerHtml"
+      hx-trigger="click"
+      hx-get="/sport/create/basic"  
+    > Click to add a new sport +
+    <span id="debug">...</span>

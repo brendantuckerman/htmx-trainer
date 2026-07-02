@@ -1,0 +1,14 @@
+{# Can partials solve this problem? #}
+<form hx-post="/sport/create" hx-target="#sports-list" hx-swap="beforeend">
+<label for="sportName">Sport name</label>
+<input
+  id="sportName"
+  type="text"
+  name="sport"
+  required
+  maxlength="42"
+  placeholder="Name of new sport">
+<button class="btn" type="submit">Submit</button>
+</form>
+
+

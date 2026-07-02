@@ -19,10 +19,24 @@
         <script src="https://cdn.jsdelivr.net/npm/frankenphp-hot-reload/+esm" type="module"></script>
         {% endif %}
     </head>
-      {% block header %} {% include "header.html.twig" %}{% endblock %}
+      {% block header %} {% include "header.html.twig" %}
+      {% for message in app.flashes('error') %}
+       <div class="flash-notice">
+        {{ message }}
+       </div>
+      {% endfor %}
+
+      {% endblock %}
     
     <body>
         {% block body %}{% endblock %}
+        {% block dialogue %}
+          <dialogue id="htmexcel-dialogue" class="hidden dialogue">Debug</dialogue>
+        {% endblock %}
     </body>
+
+    <footer>
+      Footer goes here
+    </footer>
 
 </html>
