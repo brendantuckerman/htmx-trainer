@@ -1,3 +1,25 @@
 
 
-<p>{{sport.name}} updated!</p>
+ {% set friendlyName = sport.name|replace({' ': "-"}) %}
+
+      <li id="sport-{{friendlyName}}">
+      <span class="pill pill-{{sport.color}}">{{sport.icon}}{{sport.name}}</span>
+        <button hx-get="{{path('sport_show', {id: sport.id} )}}"
+                hx-swap="outerHtml"
+                hx-trigger="click"
+                hx-target="#htmexcelDialog"
+                onclick="htmexcelDialog.showModal()"
+        >
+        Edit
+        </button> 
+      |
+      <button class="delete"
+        hx-target="#sport-{{friendlyName}}"
+        hx-trigger="click"
+        hx-swap="delete"
+        hx-delete="{{ path('sport_delete') }}"
+        hx-confirm="Are you sure you want to delete {{sport.name}}?"
+        hx-vals='{"name": "{{sport.name}}" }'
+      >Delete</button>
+
+</li>

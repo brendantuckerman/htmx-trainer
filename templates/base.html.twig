@@ -31,7 +31,9 @@
     <body>
         {% block body %}{% endblock %}
         {% block dialogue %}
-          <dialogue id="htmexcel-dialogue" class="hidden dialogue">Debug</dialogue>
+          <dialog id="htmexcelDialog" class="hidden dialog"> 
+            <button onclick="this.closest('dialog').close('close')">X</button>
+          </dialog>
         {% endblock %}
     </body>
 

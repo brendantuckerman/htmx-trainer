@@ -4,9 +4,7 @@ namespace App\Controller;
 
 use App\Entity\Sport;
 use App\Form\SportType;
-use App\Repository\SportRepository;
 use Doctrine\ORM\EntityManagerInterface;
-use Symfony\Bridge\Doctrine\Attribute\MapEntity;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -77,10 +75,12 @@ final class SportController extends AbstractController
    
     $form = $this->createForm(SportType::class, $sport, [
       'attr' => [
+        'method' => 'dialogue',
         'hx-post' => $this->generateUrl('sport_show', ['id' => $sport->getId()]),
-        'hx-target' => '#htmexcel-dialogue',
-        'hx-swap' => 'innerHtml',
+        'hx-target' => '#sports-list',
+        'hx-swap' => 'beforeend',
         'hx-trigger' => 'submit'
+        //close the modal?
     ]
     ]);
     $form->handleRequest($request);
